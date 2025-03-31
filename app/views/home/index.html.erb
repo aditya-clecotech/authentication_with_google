@@ -1,10 +1,7 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
-
-
-<%#= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, method: :post %>
+<h1 class = "text-center mt-2">HOME</h1><hr>
 
 <% if user_signed_in? %>
+   <%= link_to "View Posts", posts_path, class: "btn btn-primary my-3" %>
    <%= button_to "SignOut", destroy_user_session_path, method: :delete, class: "btn btn-danger" %>
 <% else %>
    <%= link_to "Login", new_user_session_path, class: "btn btn-primary m-2" %>
