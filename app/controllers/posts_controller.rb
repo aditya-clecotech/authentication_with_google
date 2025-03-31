@@ -24,20 +24,30 @@ class PostsController < ApplicationController
 
   def destroy  #post delete functionality
     @post = Post.find(params[:id])
-    if @post.destroy
-      flash[:notice] = 'Post was successfully deleted.'
-      redirect_to posts_url
+    if current_user.id == @post.user_id
+      if @post.destroy
+        flash[:notice] = 'Post was successfully deleted.'
+        redirect_to posts_url
+      else
+        flash[:alert] = 'Something went wrong'
+        redirect_to posts_url
+      end
     else
-      flash[:alert] = 'Something went wrong'
-      redirect_to posts_url
+      flash[:alert] = 'You are not authorized to delete this post!!'
+      redirect_to @post
     end
   end
   
   def destroy_image #post's image delete functionality
     @post = Post.find(params[:id])
-    image = @post.images.find(params[:image_id])
-    image.purge 
-    redirect_to @post, notice: "Image has successfully removed!"
+    if current_user.id == @post.user_id
+      image = @post.images.find(params[:image_id])
+      image.purge 
+      redirect_to @post, notice: "Image has successfully removed!"
+    else  
+      flash[:alert] = 'You are not authorized to remove this photo!!'
+      redirect_to @post
+    end 
   end
   
   def post_params
