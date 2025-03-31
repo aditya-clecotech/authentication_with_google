@@ -1,7 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
-  # THIS WILL THROW ERROR WHEN YOU LOGIN WITH GOOGLE FOR NON EXISTING
-  # USER (ERROR: UNKNOWN VARIABLE- UID, AND PROVIDER)
+  # THIS WILL THROW ERROR WHEN YOU LOGIN WITH GOOGLE FOR NON EXISTING USER (ERROR: UNKNOWN VARIABLE- UID, AND PROVIDER)
   
   # def google_oauth2
   #   user = User.from_google(from_google_params)
