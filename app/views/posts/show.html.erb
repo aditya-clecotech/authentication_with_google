@@ -1,0 +1,15 @@
+<div class = "mt-3">
+   <h1 class = "mb-3">Title: <%= @post.title %></h1>
+   <div class = "d-flex mb-5" >
+      <% @post.images.each do  |image|%>
+         <%= image_tag url_for(image), style: "width: 100px; height: 100px; margin: 5px; border-radius: 10px;"  %>
+
+         <%= button_to image_tag("remove.png", alt: "Remove", class: "img-fluid", size: "25x25"), 
+         image_post_path(@post, image), method: :delete, class: "btn p-0 border-0" %>
+
+      <% end %>
+   </div>
+   <%= button_to "Delete Post", @post, method: :delete  %>
+</div>
+
+<%= link_to "Back", posts_path, class: "btn btn-secondary mt-3" %>
