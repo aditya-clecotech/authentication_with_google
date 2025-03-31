@@ -274,10 +274,6 @@ Devise.setup do |config|
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :google_oauth2 ,ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"] , {}
 
-#   config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], { 
-#   provider_ignores_state: false, 
-#   allow_other_host: true 
-# }
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
