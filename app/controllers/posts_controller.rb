@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def destroy  #post delete functionality
     @post = Post.find(params[:id])
     if @post.destroy
-      flash[:notice] = 'Object was successfully deleted.'
+      flash[:notice] = 'Post was successfully deleted.'
       redirect_to posts_url
     else
       flash[:alert] = 'Something went wrong'
